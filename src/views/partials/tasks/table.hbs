@@ -1,0 +1,30 @@
+
+<table class="table table-boardered table-hover">
+    <thead>
+        <tr>
+            
+            <th>N</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>update</th>
+            <th>delete</th>
+            <th>done</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each tasks}}
+        <tr>
+            <td>{{@index}}</td>
+            <td>{{title}}</td>
+            <td>{{description}}</td>
+            <td><a href="/edit/{{_id}}" class="btn btn-info">update</a></td>
+            <td><a href="/delete/{{_id}}" class="btn btn-danger">delete</a></td>
+            {{#if done}}
+            <td><a class="btn btn-dark" href="/done/{{_id}}">undone</a></td>
+            {{else}}
+            <td><a class="btn btn-success" href="/done/{{_id}}">done</a></td>
+            {{/if}}
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
